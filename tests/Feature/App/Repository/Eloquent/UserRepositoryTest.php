@@ -131,8 +131,7 @@ class UserRepositoryTest extends TestCase
 
     public function test_find_not_found()
     {
-        $response = $this->repository->find('fake_email@email.com');
-
-        $this->assertNull($response);
+        $this->expectException(NotFoundException::class);
+        $this->repository->find('fake_email@email.com');
     }
 }
